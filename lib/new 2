@@ -1,0 +1,72 @@
+
+<script type="text/javascript">
+var user=document.forms["form1"]["uname"];
+var email=document.forms["form1"]["uid"];
+var pass=document.forms["form1"]["pwd"];
+var pass_confirm=document.forms["form"]["pwd_confirm"];
+var name_error=document.getElementById("name_error");
+var email_error=document.getElementById("email_error");
+var pass_error=document.getElementById("pass_error");
+user.addEventListener("blur",name_verify,true);
+email.addEventListener("blur",email_verify,true);
+pass.addEventListener("blur",pass_verify,true);
+function valid()
+{
+    if(user.value == " ")
+    {
+        user.style.border="2px solid red";
+        name_error.textContent="username is required";
+        user.focus();
+        return false;
+    }
+    if(email.value == " ")
+    {
+        email.style.border="2px solid red";
+        email_error.textContent="email_id is required";
+        email.focus();
+        return false;
+    }
+    if(pass.value==""||pass_confirm.value=="")
+    {
+        pass.style.border="2px solid red";
+        pass_confirm.style.border="2px solid red";
+        pass_error.textContent="password is required";
+        pass.focus();
+        return false;
+    }
+    if(pass.value!=pass_confirm.value)
+        {
+            pass_error.textContent="password dont match";
+            pass.style.border="2px solid red";
+            pass_confirm.style.border="2px solid red";
+            pass.focus();
+            return false;
+            
+        }}
+    function name_verify()
+    {
+        if(user.value!="")
+        {
+            name_error.innerHTML="";
+            return true;
+        }
+    }
+    function email_verify()
+    {
+        if(email.value!="")
+        {
+            email_error.innerHTML="";
+            return true;
+        }
+    }
+    function pass_verify()
+    {
+        if(pass.value!="")
+        {
+            pass_error.innerHTML="";
+            return true;
+        }
+    }   
+
+
+</script>
